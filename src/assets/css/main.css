@@ -1,0 +1,16 @@
+#app {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.router-link-exact-active {
+    font-weight: bold;
+}
+
+.background-footer {
+    background-color: #28a745;
+}
+
+.card-body {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
