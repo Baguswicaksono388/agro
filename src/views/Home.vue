@@ -179,6 +179,7 @@
         </div>
       </div>
     </div>
+    <FooterHome />
   </div>
 </template>
 
@@ -186,12 +187,14 @@
 // @ is an alias to /src
 import Slider from "@/components/users/template/Slider";
 import Navbar from "@/components/users/template/Navbar.vue";
+import FooterHome from "@/components/users/template/FooterHome";
 
 export default {
   name: "Home",
   components: {
     Slider,
     Navbar,
+    FooterHome,
   },
 };
 </script>

@@ -1,10 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from '../views/Home.vue'
 import TentangAgroJaya from '../views/TentangAgroJaya.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import store from '@/store'
+
+//Containers
+const Containers = () => import('@/components/dashboard/template/Containers');
+
+// Views
+const Dashboard = () => import('@/views/dashboard/Home');
 
 Vue.use(VueRouter)
 
@@ -29,11 +36,33 @@ const routes = [
     name: 'Register',
     component: Register
   },
+  // {
+  //   path: '/dashboard',
+  //   name: 'Home',
+  //   component: () => import('../views/dashboard/Home.vue'),
+  //   // algoritma untuk mengecek bahwa client harus login terlebih dahulu
+    // beforeEnter: (to, from, next) => {
+    //   if (!store.getters['auth/authenticated']) {
+    //     return next({
+    //       name: 'Login'
+    //     })
+    //   }
+    //   // console.log('middleware');
+    //   next()
+    // }
+  // },
   {
-    path: '/dashboard',
+    path: '/',
+    redirect: '/dashboard',
     name: 'Home',
-    component: () => import('../views/dashboard/Home.vue'),
-    // algoritma untuk mengecek bahwa client harus login terlebih dahulu
+    component: Containers,
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: Dashboard
+      }
+    ],
     beforeEnter: (to, from, next) => {
       if (!store.getters['auth/authenticated']) {
         return next({

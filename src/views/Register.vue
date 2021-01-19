@@ -61,16 +61,19 @@
         </div>
       </div>
     </div>
+    <FooterHome />
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/users/template/Navbar";
+import FooterHome from "@/components/users/template/FooterHome";
 
 export default {
   name: "Register",
   components: {
     Navbar,
+    FooterHome,
   },
 };
 </script>

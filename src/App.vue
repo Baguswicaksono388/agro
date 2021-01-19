@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <router-view />
-    <FooterUser />
+    <!-- <FooterUser /> -->
   </div>
 </template>
 
 <script>
-import FooterUser from "@/components/users/template/Footer";
+// import FooterUser from "@/components/users/template/Footer";
 
 export default {
   components: {
-    FooterUser,
+    // FooterUser,
   },
 };
 </script>
+
+<style lang="scss">
+// Import Main styles for this application
+@import "assets/scss/style";
+</style>

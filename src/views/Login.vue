@@ -58,6 +58,7 @@
         </div>
       </div>
     </div>
+    <FooterHome />
   </div>
 </template>
 
@@ -65,11 +66,13 @@
 import axios from "axios";
 import { mapActions } from "vuex";
 import Navbar from "@/components/users/template/Navbar";
+import FooterHome from "@/components/users/template/FooterHome";
 
 export default {
   name: "Login",
   components: {
     Navbar,
+    FooterHome,
   },
 
   data() {
@@ -97,7 +100,7 @@ export default {
       );
       if (response.data.token == "Ulangi") {
         this.$toast.success("Password dan Email salah.", {
-          type: "success",
+          type: "error",
           position: "top-right",
           duration: 3000,
           dismissible: true,

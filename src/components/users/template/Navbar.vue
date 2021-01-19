@@ -19,12 +19,12 @@
             <router-link class="nav-link" to="/dashboard"
               ><b-icon-person></b-icon-person> {{ user.name }}
             </router-link>
-            <router-link
-              class="nav-link"
-              to="/dashboard"
-              @click.native.prevent.capture="clicked"
+            <router-link class="nav-link" to="#" @click.native.prevent="clicked"
               ><b-icon-door-closed></b-icon-door-closed> Sign Out
             </router-link>
+            <!-- <li>
+              <a href="" @click.prevent="clicked">Log Out</a>
+            </li> -->
           </b-navbar-nav>
         </template>
         <template v-else>
@@ -60,7 +60,13 @@ export default {
     }),
     clicked: function () {
       this.signOutAction().then(() => {
-        this.$router.push({ path: "/" });
+        this.$router.push({ path: "/login" });
+        this.$toast.success("Terima Kasih", {
+          type: "success",
+          position: "top-right",
+          duration: 3000,
+          dismissible: true,
+        });
       });
     },
   },
